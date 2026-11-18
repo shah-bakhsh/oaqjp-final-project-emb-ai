@@ -3,7 +3,7 @@
 import requests
 from flask import Flask, render_template, request
 
-from EmotionDetection import emotion_detector
+from EmotionDetection.emotion_detection import emotion_detector
 
 app = Flask(__name__)
 
@@ -28,8 +28,7 @@ def emotion_detector_route():
         app.logger.exception("Watson NLP response could not be parsed")
         return "Emotion detection service returned an invalid response.", 502
 
-    # IBM's unchanged mywebscript.js only displays HTTP 200 responses.
-    # Return an error message as HTTP 200 so the user can see it.
+    # Return HTTP 200 for invalid input so the browser displays the message.
     if result["dominant_emotion"] is None:
         return "Invalid text! Please try again!"
 
