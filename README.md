@@ -1,4 +1,4 @@
-# Final project
+# Final Project
 
 IBM Skills Network final assessment: Emotion Detection using Watson NLP and Flask.
 
